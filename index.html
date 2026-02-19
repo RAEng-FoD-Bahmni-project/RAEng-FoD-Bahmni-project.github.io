@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bahmni RTL — Open-Source Hospital System for Arabic Healthcare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --surface: #131316;
+      --surface-2: #1a1a1f;
+      --border: #2a2a30;
+      --text: #f0f0f2;
+      --text-muted: #8a8a95;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --green: #10b981;
+      --green-hover: #059669;
+      --purple: #8b5cf6;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(10, 10, 11, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none; font-size: 0.875rem;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: white; border: none; padding: 0.5rem 1.25rem;
+      border-radius: 8px; font-size: 0.875rem; font-weight: 600; cursor: pointer;
+      transition: background 0.2s; text-decoration: none;
+    }
+    .nav-cta:hover { background: var(--accent-hover); }
+
+    /* Hero */
+    .hero {
+      padding: 10rem 2rem 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 100px; padding: 0.4rem 1rem;
+      font-size: 0.8rem; color: var(--text-muted); font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800; letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 1.5rem;
+      max-width: 800px; margin-left: auto; margin-right: auto;
+    }
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.2rem; color: var(--text-muted);
+      max-width: 600px; margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.85rem 2rem; border-radius: 10px; font-size: 1rem;
+      font-weight: 600; text-decoration: none; transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: white;
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-secondary {
+      background: var(--surface-2); color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-1px); }
+
+    /* Screenshot placeholder */
+    .screenshot-section { padding: 0 2rem 6rem; }
+    .screenshot-wrapper {
+      max-width: 1000px; margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .screenshot-wrapper .placeholder {
+      color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    }
+    .screenshot-wrapper .placeholder svg { opacity: 0.3; }
+    .browser-dots {
+      position: absolute; top: 16px; left: 20px;
+      display: flex; gap: 6px;
+    }
+    .browser-dots span {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--border);
+    }
+
+    /* Features */
+    .features { padding: 6rem 2rem; }
+    .features-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1rem;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em;
+      text-align: center; margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      color: var(--text-muted); text-align: center; max-width: 600px;
+      margin: 0 auto 4rem; font-size: 1.1rem;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: var(--text-muted); }
+    .feature-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 1.25rem;
+    }
+    .feature-icon.blue { background: rgba(59, 130, 246, 0.15); }
+    .feature-icon.green { background: rgba(16, 185, 129, 0.15); }
+    .feature-icon.purple { background: rgba(139, 92, 246, 0.15); }
+    .feature-icon.amber { background: rgba(245, 158, 11, 0.15); }
+    .feature-icon.rose { background: rgba(244, 63, 94, 0.15); }
+    .feature-icon.teal { background: rgba(20, 184, 166, 0.15); }
+    .feature-card h3 {
+      font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;
+    }
+
+    /* Architecture */
+    .architecture { padding: 6rem 2rem; }
+    .arch-inner { max-width: 1000px; margin: 0 auto; }
+    .arch-diagram {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      margin-top: 3rem;
+    }
+    .arch-layers { display: flex; flex-direction: column; gap: 1.25rem; }
+    .arch-layer {
+      display: flex; align-items: center; gap: 1.25rem;
+    }
+    .arch-layer-label {
+      width: 140px; flex-shrink: 0;
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--text-muted); text-align: right;
+    }
+    .arch-services {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; flex: 1;
+    }
+    .arch-chip {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem; font-weight: 500;
+      white-space: nowrap;
+    }
+    .arch-chip.highlight { border-color: var(--accent); color: var(--accent); }
+    .arch-divider {
+      height: 1px; background: var(--border); margin: 0.25rem 0;
+    }
+    .arch-note {
+      text-align: center; margin-top: 2rem;
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+
+    /* Two tracks */
+    .tracks { padding: 6rem 2rem; }
+    .tracks-inner { max-width: 1000px; margin: 0 auto; }
+    .tracks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+    .track-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.5rem;
+      display: flex; flex-direction: column;
+    }
+    .track-card .track-badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 0.3rem 0.75rem; border-radius: 6px;
+      margin-bottom: 1.5rem; width: fit-content;
+    }
+    .track-card.appliance .track-badge { background: rgba(16, 185, 129, 0.15); color: var(--green); }
+    .track-card.developer .track-badge { background: rgba(139, 92, 246, 0.15); color: var(--purple); }
+    .track-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .track-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex: 1; }
+    .track-card ul {
+      list-style: none; margin-bottom: 2rem;
+    }
+    .track-card ul li {
+      font-size: 0.875rem; color: var(--text-muted);
+      padding: 0.4rem 0; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .track-card ul li::before {
+      content: '✓'; color: var(--green); font-weight: 700; font-size: 0.8rem;
+    }
+    .track-card .btn { width: 100%; justify-content: center; }
+
+    /* Lab Integrations */
+    .lab-integrations { padding: 6rem 2rem; }
+    .lab-inner { max-width: 1000px; margin: 0 auto; }
+    .lab-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-top: 3rem;
+    }
+    .lab-card-content {
+      display: flex; gap: 3rem; align-items: center;
+    }
+    .lab-card-left { flex: 1; }
+    .lab-card-right {
+      flex-shrink: 0; display: flex; flex-direction: column;
+      align-items: center; gap: 1rem;
+    }
+    .lab-flow {
+      display: flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+    .lab-flow-item {
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+    }
+    .lab-flow-icon {
+      width: 48px; height: 48px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .lab-flow-item span { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; }
+    .lab-flow-arrow { color: var(--accent); font-size: 1.2rem; font-weight: 700; margin: 0 0.25rem; padding-bottom: 1rem; }
+    .lab-protocols {
+      display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap;
+    }
+    .lab-proto-chip {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      color: var(--accent);
+      border-radius: 6px; padding: 0.25rem 0.75rem;
+      font-size: 0.75rem; font-weight: 600;
+    }
+    .lab-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+    .lab-note { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
+    @media (max-width: 768px) {
+      .lab-card-content { flex-direction: column; }
+      .lab-card-right { align-items: stretch; }
+    }
+
+    /* Documentation */
+    .docs { padding: 6rem 2rem; }
+    .docs-inner { max-width: 1200px; margin: 0 auto; }
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.25rem; margin-top: 3rem;
+    }
+    .doc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .doc-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .doc-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .doc-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .doc-card p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; flex: 1; }
+    .doc-link {
+      margin-top: 1rem; font-size: 0.8rem; font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Licensing */
+    .licensing { padding: 6rem 2rem; }
+    .licensing-inner { max-width: 900px; margin: 0 auto; }
+    .license-table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .license-table {
+      width: 100%; border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .license-table thead { background: var(--surface-2); }
+    .license-table th {
+      text-align: left; padding: 1rem 1.5rem;
+      font-weight: 600; font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-muted); border-bottom: 1px solid var(--border);
+    }
+    .license-table td {
+      padding: 0.85rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .license-table tr:last-child td { border-bottom: none; }
+    .license-table td strong { color: var(--text); }
+    .license-badge {
+      display: inline-block; padding: 0.2rem 0.6rem;
+      border-radius: 6px; font-size: 0.75rem; font-weight: 600;
+      white-space: nowrap;
+    }
+    .license-badge.agpl { background: rgba(59, 130, 246, 0.15); color: var(--accent); }
+    .license-badge.mpl { background: rgba(245, 158, 11, 0.15); color: var(--amber); }
+    .license-badge.lgpl { background: rgba(16, 185, 129, 0.15); color: var(--green); }
+    .license-note {
+      text-align: center; margin-top: 1.5rem;
+      font-size: 0.85rem; color: var(--text-muted);
+    }
+    .license-note strong { color: var(--text); }
+
+    /* About */
+    .about { padding: 6rem 2rem; }
+    .about-inner {
+      max-width: 800px; margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+    }
+    .about-logos {
+      display: flex; align-items: center; justify-content: center; gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .about-logos .logo-placeholder {
+      width: 80px; height: 80px;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; color: var(--text-muted); font-weight: 600;
+    }
+    .about-inner h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+    .about-inner p {
+      color: var(--text-muted); font-size: 1rem; line-height: 1.8;
+      max-width: 600px; margin: 0 auto;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    footer p { color: var(--text-muted); font-size: 0.85rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .tracks-grid { grid-template-columns: 1fr; }
+      .arch-layer { flex-direction: column; align-items: flex-start; }
+      .arch-layer-label { text-align: left; width: auto; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">🏥 BAHMNI <span>RTL</span></div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#get-started">Get Started</a>
+        <a href="#docs">Docs</a>
+        <a href="#licensing">Licensing</a>
+        <a href="#about">About</a>
+      </div>
+      <a href="#get-started" class="nav-cta">Get Started →</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Open Source · AGPL-3.0
+    </div>
+    <h1>The first open-source<br><span class="gradient">Arabic-language hospital EMR</span></h1>
+    <p>A fully localized, hospital-grade electronic medical records system. Built with support for Arabic and RTL languages from the ground up. Patient registration, clinical encounters, lab, pharmacy, imaging, and billing. Zero license fees.</p>
+    <div class="hero-buttons">
+      <a href="#get-started" class="btn btn-primary">⬇ Download Appliance</a>
+      <a href="#get-started" class="btn btn-secondary">⌨ Developer Setup</a>
+    </div>
+  </section>
+
+  <!-- Implementation Guides -->
+  <section style="padding: 3rem 2rem; max-width: 800px; margin: 0 auto;">
+    <div style="background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.2); border-radius: 16px; padding: 2.5rem; text-align: center;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">📖 Implementation Guides | أدلة التنفيذ</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Step-by-step guides for deploying Bahmni RTL at your facility<br>أدلة خطوة بخطوة لنشر نظام باهمني في منشأتك</p>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+        <a href="#" style="color: var(--indigo); font-weight: 600; font-size: 1.1rem; text-decoration: none;">🇬🇧 English Implementation Guide</a>
+        <!-- TODO: Replace # with Google Drive link -->
+        <a href="#" style="color: var(--indigo); font-weight: 600; font-size: 1.1rem; text-decoration: none; direction: rtl;">🇸🇦 دليل التنفيذ بالعربية</a>
+        <!-- TODO: Replace # with Google Drive link -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshot -->
+  <section class="screenshot-section">
+    <div class="screenshot-wrapper">
+      <div class="browser-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+        </svg>
+        Clinical UI Screenshot Placeholder
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="features-inner">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Everything a hospital needs</h2>
+      <p class="section-subtitle">Integrated clinical, laboratory, pharmacy, imaging, and billing workflows — all localized for RTL languages.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon blue">🌐</div>
+          <h3>Full RTL Interface</h3>
+          <p>Arabic-localized clinical UI, lab modules, and appointment scheduling. Native right-to-left rendering across all applications.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon green">🏥</div>
+          <h3>Clinical EMR</h3>
+          <p>Patient registration, clinical encounters, diagnosis, prescriptions, and discharge summaries. Built on OpenMRS — the most widely deployed open-source EMR.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon purple">🧪</div>
+          <h3>Laboratory (LIS)</h3>
+          <p>Lab order management, sample tracking, and result entry via OpenELIS. Automatically synced with patient records.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon amber">💊</div>
+          <h3>Pharmacy & Billing</h3>
+          <p>Drug dispensing, inventory management, and invoicing through Odoo ERP. Integrated with clinical orders via Atomfeed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon rose">🩻</div>
+          <h3>Medical Imaging (PACS)</h3>
+          <p>DICOM image storage and viewing via DCM4CHEE. Full radiology workflow from order to report.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon teal">📊</div>
+          <h3>Reports & Analytics</h3>
+          <p>Clinical dashboards in Metabase, operational reports, and system observability via Grafana + Loki logging stack.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="architecture" id="architecture">
+    <div class="arch-inner">
+      <div class="section-label">Architecture</div>
+      <h2 class="section-title">~20 services, one command</h2>
+      <p class="section-subtitle">A complete hospital stack orchestrated through Docker Compose. Services communicate via Atomfeed event-driven sync.</p>
+      <div class="arch-diagram">
+        <div class="arch-layers">
+          <div class="arch-layer">
+            <div class="arch-layer-label">Proxy</div>
+            <div class="arch-services">
+              <div class="arch-chip highlight">Nginx Reverse Proxy</div>
+            </div>
+          </div>
+          <div class="arch-divider"></div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Clinical</div>
+            <div class="arch-services">
+              <div class="arch-chip">OpenMRS</div>
+              <div class="arch-chip">Bahmni Web</div>
+              <div class="arch-chip">Appointments</div>
+              <div class="arch-chip">Patient Docs</div>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Laboratory</div>
+            <div class="arch-services">
+              <div class="arch-chip">OpenELIS</div>
+              <div class="arch-chip">Bahmni Lab</div>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Pharmacy / ERP</div>
+            <div class="arch-services">
+              <div class="arch-chip">Odoo 10</div>
+              <div class="arch-chip">Odoo Connect</div>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Imaging</div>
+            <div class="arch-services">
+              <div class="arch-chip">DCM4CHEE</div>
+              <div class="arch-chip">PACS Integration</div>
+            </div>
+          </div>
+          <div class="arch-divider"></div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Analytics</div>
+            <div class="arch-services">
+              <div class="arch-chip">Reports</div>
+              <div class="arch-chip">Metabase</div>
+              <div class="arch-chip">Grafana</div>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Data</div>
+            <div class="arch-services">
+              <div class="arch-chip">MySQL</div>
+              <div class="arch-chip">PostgreSQL ×4</div>
+              <div class="arch-chip highlight">Atomfeed Sync</div>
+            </div>
+          </div>
+        </div>
+        <p class="arch-note">All services run as Docker containers. Zero host dependencies beyond Docker Engine.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Started (Two Tracks) -->
+  <section class="tracks" id="get-started">
+    <div class="tracks-inner">
+      <div class="section-label">Get Started</div>
+      <h2 class="section-title">Choose your path</h2>
+      <p class="section-subtitle">Whether you're deploying at a hospital or customizing the stack — we've got you covered.</p>
+      <div class="tracks-grid">
+        <div class="track-card appliance">
+          <div class="track-badge">Recommended</div>
+          <h3>Download & Run</h3>
+          <p>Pre-built appliance image. Boot it, configure your network, and you're live. No Docker or Linux expertise required.</p>
+          <ul>
+            <li>One-file download</li>
+            <li>Boot from USB or VM</li>
+            <li>Pre-configured with demo data</li>
+            <li>Guided setup wizard</li>
+          </ul>
+          <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-bootable" class="btn btn-primary">⬇ Download Appliance</a>
+        </div>
+        <div class="track-card developer">
+          <div class="track-badge">Advanced</div>
+          <h3>Developer Setup</h3>
+          <p>Clone the Docker Compose repo and customize. Full control over services, configuration, and deployment.</p>
+          <ul>
+            <li>Docker Compose stack</li>
+            <li>Modular service profiles</li>
+            <li>Custom config injection</li>
+            <li>CI/CD ready</li>
+          </ul>
+          <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-docker-RTL" class="btn btn-secondary">⌨ View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lab Integrations -->
+  <section class="lab-integrations" id="lab-integrations">
+    <div class="lab-inner">
+      <div class="section-label">Lab Integrations</div>
+      <h2 class="section-title">Connect your lab machines</h2>
+      <p class="section-subtitle">Download ready-made integrations to connect laboratory analyzers directly into the Bahmni RTL system. Results flow from the instrument to the patient record automatically.</p>
+      <div class="lab-card">
+        <div class="lab-card-content">
+          <div class="lab-card-left">
+            <div class="lab-flow">
+              <div class="lab-flow-item">
+                <div class="lab-flow-icon">🔬</div>
+                <span>Analyzer</span>
+              </div>
+              <div class="lab-flow-arrow">→</div>
+              <div class="lab-flow-item">
+                <div class="lab-flow-icon">⚡</div>
+                <span>Middleware</span>
+              </div>
+              <div class="lab-flow-arrow">→</div>
+              <div class="lab-flow-item">
+                <div class="lab-flow-icon">🧪</div>
+                <span>OpenELIS</span>
+              </div>
+              <div class="lab-flow-arrow">→</div>
+              <div class="lab-flow-item">
+                <div class="lab-flow-icon">📋</div>
+                <span>Patient Record</span>
+              </div>
+            </div>
+            <div class="lab-protocols">
+              <span class="lab-proto-chip">HL7 v2.x</span>
+              <span class="lab-proto-chip">ASTM / LIS2-A2</span>
+              <span class="lab-proto-chip">Serial RS-232</span>
+            </div>
+            <p class="lab-desc">Hematology, chemistry, urinalysis, coagulation, and immunoassay analyzers. Plug-and-play middleware with configuration templates for common lab instruments.</p>
+          </div>
+          <div class="lab-card-right">
+            <a href="https://github.com/RAEng-FoD-Bahmni-project/lab-integrations-RTL" class="btn btn-primary" target="_blank">🧬 Browse Integrations</a>
+            <p class="lab-note">Open source · AGPL 3.0 · Community contributions welcome</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documentation -->
+  <section class="docs" id="docs">
+    <div class="docs-inner">
+      <div class="section-label">Documentation</div>
+      <h2 class="section-title">Implementation guides</h2>
+      <p class="section-subtitle">Everything you need to deploy, configure, and extend Bahmni RTL.</p>
+      <div class="docs-grid">
+        <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-docker-RTL#readme" class="doc-card" target="_blank">
+          <div class="doc-icon">📦</div>
+          <h3>Installation Guide</h3>
+          <p>Step-by-step Docker installation, service verification, and post-install database restoration for OpenMRS, OpenELIS, and Odoo.</p>
+          <span class="doc-link">bahmni-docker-RTL →</span>
+        </a>
+        <a href="https://bahmni.atlassian.net/wiki/spaces/BAH/pages/299630726/Running+Bahmni+on+Docker" class="doc-card" target="_blank">
+          <div class="doc-icon">🐳</div>
+          <h3>Bahmni on Docker</h3>
+          <p>Upstream Bahmni Docker wiki — profiles, environment configuration, service management, and troubleshooting.</p>
+          <span class="doc-link">Bahmni Wiki →</span>
+        </a>
+        <a href="https://github.com/RAEng-FoD-Bahmni-project/default-config-RTL#readme" class="doc-card" target="_blank">
+          <div class="doc-icon">⚙️</div>
+          <h3>RTL Configuration</h3>
+          <p>Default configuration for Arabic localization — concepts, forms, clinical templates, and locale settings.</p>
+          <span class="doc-link">default-config-RTL →</span>
+        </a>
+        <a href="https://github.com/RAEng-FoD-Bahmni-project/openmrs-module-bahmniapps-RTL#readme" class="doc-card" target="_blank">
+          <div class="doc-icon">🌐</div>
+          <h3>RTL Clinical UI</h3>
+          <p>Bahmni Apps with full right-to-left rendering — patient dashboard, clinical encounters, and registration.</p>
+          <span class="doc-link">bahmniapps-RTL →</span>
+        </a>
+        <a href="https://github.com/RAEng-FoD-Bahmni-project/OpenElis-RTL#readme" class="doc-card" target="_blank">
+          <div class="doc-icon">🧪</div>
+          <h3>Laboratory (OpenELIS RTL)</h3>
+          <p>Arabic-localized lab information system — sample tracking, result entry, and OpenMRS integration.</p>
+          <span class="doc-link">OpenElis-RTL →</span>
+        </a>
+        <a href="https://github.com/RAEng-FoD-Bahmni-project/odoo-modules-rtl#readme" class="doc-card" target="_blank">
+          <div class="doc-icon">💊</div>
+          <h3>Pharmacy & Billing (Odoo RTL)</h3>
+          <p>RTL Odoo modules for drug dispensing, inventory, and invoicing integrated with clinical orders.</p>
+          <span class="doc-link">odoo-modules-rtl →</span>
+        </a>
+        <a href="https://bahmni.atlassian.net/wiki/spaces/BAH/overview" class="doc-card" target="_blank">
+          <div class="doc-icon">📚</div>
+          <h3>Bahmni Wiki (Upstream)</h3>
+          <p>Complete upstream documentation — architecture, developer guides, API reference, and administration.</p>
+          <span class="doc-link">bahmni.atlassian.net →</span>
+        </a>
+        <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-reports-RTL#readme" class="doc-card" target="_blank">
+          <div class="doc-icon">📊</div>
+          <h3>Reports (RTL)</h3>
+          <p>Arabic-localized clinical and operational reports with Jasper integration.</p>
+          <span class="doc-link">bahmni-reports-RTL →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Licensing -->
+  <section class="licensing" id="licensing">
+    <div class="licensing-inner">
+      <div class="section-label">Open Source Licensing</div>
+      <h2 class="section-title">Fully open, fully auditable</h2>
+      <p class="section-subtitle">Bahmni RTL inherits the open-source licenses of the upstream Bahmni ecosystem. Every component is free to use, modify, and distribute.</p>
+      <div class="license-table-wrap">
+        <table class="license-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>License</th>
+              <th>Scope</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Bahmni RTL Components</strong></td>
+              <td><span class="license-badge agpl">AGPL 3.0</span></td>
+              <td>RTL UI, Docker orchestration, reports, integrations</td>
+            </tr>
+            <tr>
+              <td>Bahmni Core</td>
+              <td><span class="license-badge agpl">AGPL 3.0</span></td>
+              <td>Clinical apps, modules, deployment automation</td>
+            </tr>
+            <tr>
+              <td>OpenMRS</td>
+              <td><span class="license-badge mpl">MPL 2.0</span></td>
+              <td>EMR platform, patient records, clinical encounters</td>
+            </tr>
+            <tr>
+              <td>OpenELIS</td>
+              <td><span class="license-badge agpl">AGPL 3.0</span></td>
+              <td>Laboratory information system</td>
+            </tr>
+            <tr>
+              <td>Odoo Community (v10)</td>
+              <td><span class="license-badge lgpl">LGPL 3.0</span></td>
+              <td>Pharmacy, billing, ERP</td>
+            </tr>
+            <tr>
+              <td>DCM4CHEE</td>
+              <td><span class="license-badge mpl">MPL / GPL / LGPL</span></td>
+              <td>DICOM imaging, PACS</td>
+            </tr>
+            <tr>
+              <td>Jasper Reports</td>
+              <td><span class="license-badge lgpl">LGPL</span></td>
+              <td>Report generation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="license-note">All Bahmni RTL modifications and new components are released under <strong>AGPL 3.0</strong>, consistent with upstream Bahmni. See each repository's LICENSE file for details.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-logos">
+        <div class="logo-placeholder">RAEng</div>
+        <div class="logo-placeholder">FoD</div>
+        <div class="logo-placeholder">Bahmni</div>
+      </div>
+      <h3>Built by the Frontiers of Development</h3>
+      <p>This project is part of the Royal Academy of Engineering's Frontiers of Development programme, adapting open-source health technology for Arabic-speaking communities. Built on Bahmni — the open-source hospital system trusted by healthcare organizations worldwide.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      Bahmni RTL is open source under <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-docker-RTL/blob/master/LICENSE">AGPL-3.0</a> · 
+      <a href="https://github.com/RAEng-FoD-Bahmni-project">GitHub</a> · 
+      <a href="https://www.bahmni.org/">Bahmni.org</a> · 
+      <a href="https://www.raeng.org.uk/programmes-and-prizes/programmes/international-programmes/frontiers">RAEng FoD</a>
+    </p>
+  </footer>
+
+</body>
+</html>
