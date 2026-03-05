@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bahmni RTL — Open-Source Hospital System for Arabic Healthcare</title>
+  <title>نظام البهمني باللغة العربية — نظام مستشفى مفتوح المصدر للرعاية الصحية العربية</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #ffffff;
@@ -26,7 +26,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
+      font-family: 'Noto Sans Arabic', 'Inter', -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -138,7 +138,7 @@
     }
     .screenshot-wrapper .placeholder svg { opacity: 0.3; }
     .browser-dots {
-      position: absolute; top: 16px; left: 20px;
+      position: absolute; top: 16px; right: 20px;
       display: flex; gap: 6px;
     }
     .browser-dots span {
@@ -210,7 +210,7 @@
     .arch-layer-label {
       width: 140px; flex-shrink: 0;
       font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--text-muted); text-align: right;
+      letter-spacing: 0.08em; color: var(--text-muted); text-align: left;
     }
     .arch-services {
       display: flex; gap: 0.5rem; flex-wrap: wrap; flex: 1;
@@ -359,7 +359,7 @@
     }
     .license-table thead { background: var(--surface-2); }
     .license-table th {
-      text-align: left; padding: 1rem 1.5rem;
+      text-align: right; padding: 1rem 1.5rem;
       font-weight: 600; font-size: 0.8rem;
       text-transform: uppercase; letter-spacing: 0.06em;
       color: var(--text-muted); border-bottom: 1px solid var(--border);
@@ -426,7 +426,7 @@
     @media (max-width: 768px) {
       .tracks-grid { grid-template-columns: 1fr; }
       .arch-layer { flex-direction: column; align-items: flex-start; }
-      .arch-layer-label { text-align: left; width: auto; }
+      .arch-layer-label { text-align: right; width: auto; }
       .nav-links { display: none; }
     }
   </style>
@@ -436,17 +436,17 @@
   <!-- Nav -->
   <nav>
     <div class="nav-inner">
-      <div class="nav-logo">🏥 BAHMNI <span>RTL</span></div>
+      <div class="nav-logo">🏥 نظام البهمني <span>باللغة العربية</span></div>
       <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#get-started">Get Started</a>
-        <a href="#docs">Docs</a>
-        <a href="#licensing">Licensing</a>
-        <a href="#about">About</a>
+        <a href="#features">المميزات</a>
+        <a href="#architecture">البنية التقنية</a>
+        <a href="#get-started">ابدأ الآن</a>
+        <a href="#docs">التوثيق</a>
+        <a href="#licensing">التراخيص</a>
+        <a href="#about">حول المشروع</a>
       </div>
-      <a href="./ar/index.html" style="font-weight:600; color: var(--text-muted); text-decoration: none; font-size: 0.875rem;">العربية</a>
-      <a href="#get-started" class="nav-cta">Get Started →</a>
+      <a href="../index.html" class="nav-links" style="font-weight:600;">English</a>
+      <a href="#get-started" class="nav-cta">← ابدأ الآن</a>
     </div>
   </nav>
 
@@ -454,26 +454,26 @@
   <section class="hero">
     <div class="hero-badge">
       <span class="dot"></span>
-      Open Source · AGPL-3.0
+      مفتوح المصدر · AGPL-3.0
     </div>
-    <h1>The first open-source<br><span class="gradient">Arabic-language hospital EMR</span></h1>
-    <p>A fully localized, hospital-grade electronic medical records system. Built with support for Arabic and RTL languages from the ground up. Patient registration, clinical encounters, lab, pharmacy, imaging, and billing. Proudly serving millions of patients across low-income areas of the Middle East. Zero license fees!</p>
+    <h1>أول نظام سجلات طبية<br><span class="gradient">مفتوح المصدر باللغة العربية</span></h1>
+    <p>نظام سجلات طبية إلكترونية متكامل ومُعرَّب بالكامل بمستوى المستشفيات. مبني مع دعم كامل للغة العربية والكتابة من اليمين لليسار. تسجيل المرضى، الزيارات السريرية، المختبر، الصيدلية، التصوير الطبي، والفوترة. يخدم بفخر ملايين المرضى في المناطق ذات الدخل المنخفض في الشرق الأوسط. بدون رسوم ترخيص!</p>
     <div class="hero-buttons">
-      <a href="#get-started" class="btn btn-primary">⬇ Download Appliance</a>
-      <a href="#get-started" class="btn btn-secondary">⌨ Developer Setup</a>
+      <a href="#get-started" class="btn btn-primary">⬇ تحميل النظام الجاهز</a>
+      <a href="#get-started" class="btn btn-secondary">⌨ إعداد المطورين</a>
     </div>
   </section>
 
   <!-- Implementation Guides -->
   <section style="padding: 3rem 2rem; max-width: 800px; margin: 0 auto;">
     <div style="background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.2); border-radius: 16px; padding: 2.5rem; text-align: center;">
-      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">📖 Implementation Guides</h2>
-      <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">Step-by-step guides for deploying Bahmni RTL at your facility</p>
-      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; direction: rtl; font-size: 1.05rem;">أدلة خطوة بخطوة لنشر نظام باهمني في منشأتك</p>
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">📖 أدلة التنفيذ</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">أدلة خطوة بخطوة لنشر نظام البهمني باللغة العربية في منشأتك</p>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.05rem;">Step-by-step guides for deploying Bahmni RTL at your facility</p>
       <div style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
-        <a href="#" style="color: var(--indigo); font-weight: 600; font-size: 1.1rem; text-decoration: none;">English Implementation Guide</a>
+        <a href="#" style="color: var(--indigo); font-weight: 600; font-size: 1.1rem; text-decoration: none;">دليل التنفيذ بالعربية</a>
         <!-- TODO: Replace # with Google Drive link -->
-        <a href="#" style="color: var(--indigo); font-weight: 600; font-size: 1.1rem; text-decoration: none; direction: rtl;">دليل التنفيذ بالعربية</a>
+        <a href="#" style="color: var(--indigo); font-weight: 600; font-size: 1.1rem; text-decoration: none;">English Implementation Guide</a>
         <!-- TODO: Replace # with Google Drive link -->
       </div>
     </div>
@@ -491,7 +491,7 @@
           <circle cx="8.5" cy="8.5" r="1.5"/>
           <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
         </svg>
-        Clinical UI Screenshot Placeholder
+        صورة توضيحية للواجهة السريرية
       </div>
     </div>
   </section>
@@ -499,39 +499,39 @@
   <!-- Features -->
   <section class="features" id="features">
     <div class="features-inner">
-      <div class="section-label">Features</div>
-      <h2 class="section-title">Everything a hospital needs</h2>
-      <p class="section-subtitle">Integrated clinical, laboratory, pharmacy, imaging, and billing workflows — all localized for RTL languages.</p>
+      <div class="section-label">المميزات</div>
+      <h2 class="section-title">كل ما يحتاجه المستشفى</h2>
+      <p class="section-subtitle">سير عمل سريري ومخبري وصيدلاني وتصوير طبي وفوترة متكامل — معرّب بالكامل للغات التي تُكتب من اليمين لليسار.</p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon blue">🌐</div>
-          <h3>Full RTL Interface</h3>
-          <p>Arabic-localized clinical UI, lab modules, and appointment scheduling. Native right-to-left rendering across all applications.</p>
+          <h3>واجهة عربية كاملة</h3>
+          <p>واجهة سريرية معرّبة بالكامل، وحدات مخبرية، وجدولة مواعيد. عرض أصلي من اليمين لليسار عبر جميع التطبيقات.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon green">🏥</div>
-          <h3>Clinical EMR</h3>
-          <p>Patient registration, clinical encounters, diagnosis, prescriptions, and discharge summaries. Built on OpenMRS — the most widely deployed open-source EMR.</p>
+          <h3>السجل الطبي الإلكتروني</h3>
+          <p>تسجيل المرضى، الزيارات السريرية، التشخيص، الوصفات الطبية، وملخصات الخروج. مبني على OpenMRS — أكثر نظام سجلات طبية مفتوح المصدر انتشاراً في العالم.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon purple">🧪</div>
-          <h3>Laboratory (LIS)</h3>
-          <p>Lab order management, sample tracking, and result entry via OpenELIS. Automatically synced with patient records.</p>
+          <h3>المختبر (LIS)</h3>
+          <p>إدارة طلبات المختبر، تتبع العينات، وإدخال النتائج عبر OpenELIS. مزامنة تلقائية مع سجلات المرضى.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon amber">💊</div>
-          <h3>Pharmacy & Billing</h3>
-          <p>Drug dispensing, inventory management, and invoicing through Odoo ERP. Integrated with clinical orders via Atomfeed.</p>
+          <h3>الصيدلية والفوترة</h3>
+          <p>صرف الأدوية، إدارة المخزون، والفوترة من خلال Odoo ERP. متكامل مع الطلبات السريرية عبر Atomfeed.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon rose">🩻</div>
-          <h3>Medical Imaging (PACS)</h3>
-          <p>DICOM image storage and viewing via DCM4CHEE. Full radiology workflow from order to report.</p>
+          <h3>التصوير الطبي (PACS)</h3>
+          <p>تخزين وعرض صور DICOM عبر DCM4CHEE. سير عمل أشعة كامل من الطلب إلى التقرير.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon teal">📊</div>
-          <h3>Reports & Analytics</h3>
-          <p>Clinical dashboards in Metabase, operational reports, and system observability via Grafana + Loki logging stack.</p>
+          <h3>التقارير والتحليلات</h3>
+          <p>لوحات معلومات سريرية في Metabase، تقارير تشغيلية، ومراقبة النظام عبر Grafana + Loki.</p>
         </div>
       </div>
     </div>
@@ -540,59 +540,59 @@
   <!-- Architecture -->
   <section class="architecture" id="architecture">
     <div class="arch-inner">
-      <div class="section-label">Architecture</div>
-      <h2 class="section-title">~20 services, one command</h2>
-      <p class="section-subtitle">A complete hospital stack orchestrated through Docker Compose. Services communicate via Atomfeed event-driven sync.</p>
+      <div class="section-label">البنية التقنية</div>
+      <h2 class="section-title">~٢٠ خدمة، أمر واحد</h2>
+      <p class="section-subtitle">بنية مستشفى كاملة مُنسَّقة عبر Docker Compose. تتواصل الخدمات عبر مزامنة Atomfeed المبنية على الأحداث.</p>
       <div class="arch-diagram">
         <div class="arch-layers">
           <div class="arch-layer">
-            <div class="arch-layer-label">Proxy</div>
+            <div class="arch-layer-label">البروكسي</div>
             <div class="arch-services">
               <div class="arch-chip highlight">Nginx Reverse Proxy</div>
             </div>
           </div>
           <div class="arch-divider"></div>
           <div class="arch-layer">
-            <div class="arch-layer-label">Clinical</div>
+            <div class="arch-layer-label">السريري</div>
             <div class="arch-services">
               <div class="arch-chip">OpenMRS</div>
               <div class="arch-chip">Bahmni Web</div>
-              <div class="arch-chip">Appointments</div>
-              <div class="arch-chip">Patient Docs</div>
+              <div class="arch-chip">المواعيد</div>
+              <div class="arch-chip">مستندات المرضى</div>
             </div>
           </div>
           <div class="arch-layer">
-            <div class="arch-layer-label">Laboratory</div>
+            <div class="arch-layer-label">المختبر</div>
             <div class="arch-services">
               <div class="arch-chip">OpenELIS</div>
-              <div class="arch-chip">Bahmni Lab</div>
+              <div class="arch-chip">مختبر البهمني</div>
             </div>
           </div>
           <div class="arch-layer">
-            <div class="arch-layer-label">Pharmacy / ERP</div>
+            <div class="arch-layer-label">الصيدلية / ERP</div>
             <div class="arch-services">
               <div class="arch-chip">Odoo 10</div>
               <div class="arch-chip">Odoo Connect</div>
             </div>
           </div>
           <div class="arch-layer">
-            <div class="arch-layer-label">Imaging</div>
+            <div class="arch-layer-label">التصوير</div>
             <div class="arch-services">
               <div class="arch-chip">DCM4CHEE</div>
-              <div class="arch-chip">PACS Integration</div>
+              <div class="arch-chip">تكامل PACS</div>
             </div>
           </div>
           <div class="arch-divider"></div>
           <div class="arch-layer">
-            <div class="arch-layer-label">Analytics</div>
+            <div class="arch-layer-label">التحليلات</div>
             <div class="arch-services">
-              <div class="arch-chip">Reports</div>
+              <div class="arch-chip">التقارير</div>
               <div class="arch-chip">Metabase</div>
               <div class="arch-chip">Grafana</div>
             </div>
           </div>
           <div class="arch-layer">
-            <div class="arch-layer-label">Data</div>
+            <div class="arch-layer-label">البيانات</div>
             <div class="arch-services">
               <div class="arch-chip">MySQL</div>
               <div class="arch-chip">PostgreSQL ×4</div>
@@ -600,7 +600,7 @@
             </div>
           </div>
         </div>
-        <p class="arch-note">All services run as Docker containers. Zero host dependencies beyond Docker Engine.</p>
+        <p class="arch-note">جميع الخدمات تعمل كحاويات Docker. لا توجد أي متطلبات على المضيف سوى Docker Engine.</p>
       </div>
     </div>
   </section>
@@ -608,33 +608,33 @@
   <!-- Get Started (Two Tracks) -->
   <section class="tracks" id="get-started">
     <div class="tracks-inner">
-      <div class="section-label">Get Started</div>
-      <h2 class="section-title">Choose your path</h2>
-      <p class="section-subtitle">Whether you're deploying at a hospital or customizing the stack — we've got you covered.</p>
+      <div class="section-label">ابدأ الآن</div>
+      <h2 class="section-title">اختر مسارك</h2>
+      <p class="section-subtitle">سواء كنت تنشر النظام في مستشفى أو تخصص البنية التقنية — نحن هنا لمساعدتك.</p>
       <div class="tracks-grid">
         <div class="track-card appliance">
-          <div class="track-badge">Recommended</div>
-          <h3>Download & Run</h3>
-          <p>Pre-built appliance image. Boot it, configure your network, and you're live. No Docker or Linux expertise required.</p>
+          <div class="track-badge">موصى به</div>
+          <h3>تحميل وتشغيل</h3>
+          <p>صورة نظام جاهزة مسبقاً. شغّلها، اضبط الشبكة، وابدأ العمل. لا حاجة لخبرة في Docker أو Linux.</p>
           <ul>
-            <li>One-file download</li>
-            <li>Boot from USB or VM</li>
-            <li>Pre-configured with demo data</li>
-            <li>Guided setup wizard</li>
+            <li>تحميل ملف واحد</li>
+            <li>إقلاع من USB أو آلة افتراضية</li>
+            <li>مُعد مسبقاً ببيانات تجريبية</li>
+            <li>معالج إعداد موجّه</li>
           </ul>
-          <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-bootable" class="btn btn-primary">⬇ Download Appliance</a>
+          <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-bootable" class="btn btn-primary">⬇ تحميل النظام الجاهز</a>
         </div>
         <div class="track-card developer">
-          <div class="track-badge">Advanced</div>
-          <h3>Developer Setup</h3>
-          <p>Clone the Docker Compose repo and customize. Full control over services, configuration, and deployment.</p>
+          <div class="track-badge">متقدم</div>
+          <h3>إعداد المطورين</h3>
+          <p>انسخ مستودع Docker Compose وخصّصه. تحكم كامل في الخدمات والإعدادات والنشر.</p>
           <ul>
-            <li>Docker Compose stack</li>
-            <li>Modular service profiles</li>
-            <li>Custom config injection</li>
-            <li>CI/CD ready</li>
+            <li>بنية Docker Compose</li>
+            <li>ملفات تعريف خدمات معيارية</li>
+            <li>حقن إعدادات مخصصة</li>
+            <li>جاهز للتكامل المستمر CI/CD</li>
           </ul>
-          <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-docker-RTL" class="btn btn-secondary">⌨ View on GitHub</a>
+          <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-docker-RTL" class="btn btn-secondary">⌨ عرض على GitHub</a>
         </div>
       </div>
     </div>
@@ -643,9 +643,9 @@
   <!-- Lab Integrations -->
   <section class="lab-integrations" id="lab-integrations">
     <div class="lab-inner">
-      <div class="section-label">Lab Integrations</div>
-      <h2 class="section-title">Connect your lab machines</h2>
-      <p class="section-subtitle">Download ready-made integrations to connect laboratory analyzers directly into the Bahmni RTL system. Results flow from the instrument to the patient record automatically.</p>
+      <div class="section-label">تكاملات المختبر</div>
+      <h2 class="section-title">اربط أجهزة مختبرك</h2>
+      <p class="section-subtitle">حمّل تكاملات جاهزة لربط أجهزة التحليل المخبري مباشرة بنظام البهمني باللغة العربية. تنتقل النتائج من الجهاز إلى سجل المريض تلقائياً.</p>
       <div class="lab-card">
         <div class="lab-card-content">
           <div class="lab-card-left">
@@ -675,11 +675,11 @@
               <span class="lab-proto-chip">ASTM / LIS2-A2</span>
               <span class="lab-proto-chip">Serial RS-232</span>
             </div>
-            <p class="lab-desc">Hematology, chemistry, urinalysis, coagulation, and immunoassay analyzers. Plug-and-play middleware with configuration templates for common lab instruments.</p>
+            <p class="lab-desc">أجهزة تحليل الدم، الكيمياء الحيوية، تحليل البول، التخثر، والمناعة. برنامج وسيط جاهز للاستخدام مع قوالب إعداد لأجهزة المختبر الشائعة.</p>
           </div>
           <div class="lab-card-right">
-            <a href="https://github.com/RAEng-FoD-Bahmni-project/lab-integrations-RTL" class="btn btn-primary" target="_blank">🧬 Browse Integrations</a>
-            <p class="lab-note">Open source · AGPL 3.0 · Community contributions welcome</p>
+            <a href="https://github.com/RAEng-FoD-Bahmni-project/lab-integrations-RTL" class="btn btn-primary" target="_blank">🧬 تصفح التكاملات</a>
+            <p class="lab-note">مفتوح المصدر · AGPL 3.0 · مساهمات المجتمع مرحب بها</p>
           </div>
         </div>
       </div>
@@ -689,57 +689,57 @@
   <!-- Documentation -->
   <section class="docs" id="docs">
     <div class="docs-inner">
-      <div class="section-label">Documentation</div>
-      <h2 class="section-title">Implementation guides</h2>
-      <p class="section-subtitle">Everything you need to deploy, configure, and extend Bahmni RTL.</p>
+      <div class="section-label">التوثيق</div>
+      <h2 class="section-title">أدلة التنفيذ</h2>
+      <p class="section-subtitle">كل ما تحتاجه لنشر وتهيئة وتوسيع نظام البهمني باللغة العربية.</p>
       <div class="docs-grid">
         <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-docker-RTL#readme" class="doc-card" target="_blank">
           <div class="doc-icon">📦</div>
-          <h3>Installation Guide</h3>
-          <p>Step-by-step Docker installation, service verification, and post-install database restoration for OpenMRS, OpenELIS, and Odoo.</p>
-          <span class="doc-link">bahmni-docker-RTL →</span>
+          <h3>دليل التثبيت</h3>
+          <p>تثبيت Docker خطوة بخطوة، التحقق من الخدمات، واستعادة قواعد البيانات بعد التثبيت لـ OpenMRS و OpenELIS و Odoo.</p>
+          <span class="doc-link">← bahmni-docker-RTL</span>
         </a>
         <a href="https://bahmni.atlassian.net/wiki/spaces/BAH/pages/299630726/Running+Bahmni+on+Docker" class="doc-card" target="_blank">
           <div class="doc-icon">🐳</div>
-          <h3>Bahmni on Docker</h3>
-          <p>Upstream Bahmni Docker wiki — profiles, environment configuration, service management, and troubleshooting.</p>
-          <span class="doc-link">Bahmni Wiki →</span>
+          <h3>البهمني على Docker</h3>
+          <p>ويكي البهمني الأصلي — ملفات التعريف، إعداد البيئة، إدارة الخدمات، واستكشاف الأخطاء.</p>
+          <span class="doc-link">← Bahmni Wiki</span>
         </a>
         <a href="https://github.com/RAEng-FoD-Bahmni-project/default-config-RTL#readme" class="doc-card" target="_blank">
           <div class="doc-icon">⚙️</div>
-          <h3>RTL Configuration</h3>
-          <p>Default configuration for Arabic localization — concepts, forms, clinical templates, and locale settings.</p>
-          <span class="doc-link">default-config-RTL →</span>
+          <h3>إعدادات RTL</h3>
+          <p>الإعدادات الافتراضية للتعريب العربي — المفاهيم، النماذج، القوالب السريرية، وإعدادات اللغة.</p>
+          <span class="doc-link">← default-config-RTL</span>
         </a>
         <a href="https://github.com/RAEng-FoD-Bahmni-project/openmrs-module-bahmniapps-RTL#readme" class="doc-card" target="_blank">
           <div class="doc-icon">🌐</div>
-          <h3>RTL Clinical UI</h3>
-          <p>Bahmni Apps with full right-to-left rendering — patient dashboard, clinical encounters, and registration.</p>
-          <span class="doc-link">bahmniapps-RTL →</span>
+          <h3>الواجهة السريرية RTL</h3>
+          <p>تطبيقات البهمني مع عرض كامل من اليمين لليسار — لوحة المريض، الزيارات السريرية، والتسجيل.</p>
+          <span class="doc-link">← bahmniapps-RTL</span>
         </a>
         <a href="https://github.com/RAEng-FoD-Bahmni-project/OpenElis-RTL#readme" class="doc-card" target="_blank">
           <div class="doc-icon">🧪</div>
-          <h3>Laboratory (OpenELIS RTL)</h3>
-          <p>Arabic-localized lab information system — sample tracking, result entry, and OpenMRS integration.</p>
-          <span class="doc-link">OpenElis-RTL →</span>
+          <h3>المختبر (OpenELIS RTL)</h3>
+          <p>نظام معلومات مخبري معرّب بالعربية — تتبع العينات، إدخال النتائج، والتكامل مع OpenMRS.</p>
+          <span class="doc-link">← OpenElis-RTL</span>
         </a>
         <a href="https://github.com/RAEng-FoD-Bahmni-project/odoo-modules-rtl#readme" class="doc-card" target="_blank">
           <div class="doc-icon">💊</div>
-          <h3>Pharmacy & Billing (Odoo RTL)</h3>
-          <p>RTL Odoo modules for drug dispensing, inventory, and invoicing integrated with clinical orders.</p>
-          <span class="doc-link">odoo-modules-rtl →</span>
+          <h3>الصيدلية والفوترة (Odoo RTL)</h3>
+          <p>وحدات Odoo بدعم RTL لصرف الأدوية والمخزون والفوترة المتكاملة مع الطلبات السريرية.</p>
+          <span class="doc-link">← odoo-modules-rtl</span>
         </a>
         <a href="https://bahmni.atlassian.net/wiki/spaces/BAH/overview" class="doc-card" target="_blank">
           <div class="doc-icon">📚</div>
-          <h3>Bahmni Wiki (Upstream)</h3>
-          <p>Complete upstream documentation — architecture, developer guides, API reference, and administration.</p>
-          <span class="doc-link">bahmni.atlassian.net →</span>
+          <h3>ويكي البهمني (الأصلي)</h3>
+          <p>التوثيق الكامل الأصلي — البنية التقنية، أدلة المطورين، مرجع API، والإدارة.</p>
+          <span class="doc-link">← bahmni.atlassian.net</span>
         </a>
         <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-reports-RTL#readme" class="doc-card" target="_blank">
           <div class="doc-icon">📊</div>
-          <h3>Reports (RTL)</h3>
-          <p>Arabic-localized clinical and operational reports with Jasper integration.</p>
-          <span class="doc-link">bahmni-reports-RTL →</span>
+          <h3>التقارير (RTL)</h3>
+          <p>تقارير سريرية وتشغيلية معرّبة بالعربية مع تكامل Jasper.</p>
+          <span class="doc-link">← bahmni-reports-RTL</span>
         </a>
       </div>
     </div>
@@ -748,58 +748,58 @@
   <!-- Licensing -->
   <section class="licensing" id="licensing">
     <div class="licensing-inner">
-      <div class="section-label">Open Source Licensing</div>
-      <h2 class="section-title">Fully open, fully auditable</h2>
-      <p class="section-subtitle">Bahmni RTL inherits the open-source licenses of the upstream Bahmni ecosystem. Every component is free to use, modify, and distribute.</p>
+      <div class="section-label">التراخيص مفتوحة المصدر</div>
+      <h2 class="section-title">مفتوح بالكامل، قابل للتدقيق بالكامل</h2>
+      <p class="section-subtitle">يرث نظام البهمني باللغة العربية تراخيص المصدر المفتوح من منظومة البهمني الأصلية. كل مكوّن مجاني للاستخدام والتعديل والتوزيع.</p>
       <div class="license-table-wrap">
         <table class="license-table">
           <thead>
             <tr>
-              <th>Component</th>
-              <th>License</th>
-              <th>Scope</th>
+              <th>المكوّن</th>
+              <th>الترخيص</th>
+              <th>النطاق</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Bahmni RTL Components</strong></td>
+              <td><strong>مكونات نظام البهمني باللغة العربية</strong></td>
               <td><span class="license-badge agpl">AGPL 3.0</span></td>
-              <td>RTL UI, Docker orchestration, reports, integrations</td>
+              <td>واجهة RTL، تنسيق Docker، التقارير، التكاملات</td>
             </tr>
             <tr>
               <td>Bahmni Core</td>
               <td><span class="license-badge agpl">AGPL 3.0</span></td>
-              <td>Clinical apps, modules, deployment automation</td>
+              <td>التطبيقات السريرية، الوحدات، أتمتة النشر</td>
             </tr>
             <tr>
               <td>OpenMRS</td>
               <td><span class="license-badge mpl">MPL 2.0</span></td>
-              <td>EMR platform, patient records, clinical encounters</td>
+              <td>منصة السجلات الطبية، سجلات المرضى، الزيارات السريرية</td>
             </tr>
             <tr>
               <td>OpenELIS</td>
               <td><span class="license-badge agpl">AGPL 3.0</span></td>
-              <td>Laboratory information system</td>
+              <td>نظام معلومات المختبر</td>
             </tr>
             <tr>
               <td>Odoo Community (v10)</td>
               <td><span class="license-badge lgpl">LGPL 3.0</span></td>
-              <td>Pharmacy, billing, ERP</td>
+              <td>الصيدلية، الفوترة، ERP</td>
             </tr>
             <tr>
               <td>DCM4CHEE</td>
               <td><span class="license-badge mpl">MPL / GPL / LGPL</span></td>
-              <td>DICOM imaging, PACS</td>
+              <td>التصوير DICOM، نظام PACS</td>
             </tr>
             <tr>
               <td>Jasper Reports</td>
               <td><span class="license-badge lgpl">LGPL</span></td>
-              <td>Report generation</td>
+              <td>إنشاء التقارير</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="license-note">All Bahmni RTL modifications and new components are released under <strong>AGPL 3.0</strong>, consistent with upstream Bahmni. See each repository's LICENSE file for details.</p>
+      <p class="license-note">جميع تعديلات ومكونات نظام البهمني باللغة العربية الجديدة صادرة تحت ترخيص <strong>AGPL 3.0</strong>، بما يتوافق مع البهمني الأصلي. راجع ملف LICENSE في كل مستودع للتفاصيل.</p>
     </div>
   </section>
 
@@ -807,19 +807,19 @@
   <section class="about" id="about">
     <div class="about-inner">
       <div class="about-logos">
-        <div class="logo-placeholder"><img src="logos/raeng.png" alt="Royal Academy of Engineering" style="max-width: 70px; max-height: 60px; object-fit: contain;"></div>
-        <div class="logo-placeholder"><img src="logos/who.png" alt="World Health Organization" style="max-width: 60px; max-height: 60px; object-fit: contain;"></div>
-        <div class="logo-placeholder"><img src="logos/iplit.png" alt="IPLit" style="max-width: 70px; max-height: 60px; object-fit: contain;"></div>
-        <div class="logo-placeholder"><img src="logos/next-medtech.png" alt="Next Medtech" style="max-width: 70px; max-height: 60px; object-fit: contain;"></div>
+        <div class="logo-placeholder"><img src="../logos/raeng.png" alt="الأكاديمية الملكية للهندسة" style="max-width: 70px; max-height: 60px; object-fit: contain;"></div>
+        <div class="logo-placeholder"><img src="../logos/who.png" alt="منظمة الصحة العالمية" style="max-width: 60px; max-height: 60px; object-fit: contain;"></div>
+        <div class="logo-placeholder"><img src="../logos/iplit.png" alt="IPLit" style="max-width: 70px; max-height: 60px; object-fit: contain;"></div>
+        <div class="logo-placeholder"><img src="../logos/next-medtech.png" alt="Next Medtech" style="max-width: 70px; max-height: 60px; object-fit: contain;"></div>
       </div>
-      <h3>Built by Next Medtech</h3>
-      <p>This project originated from the Royal Academy of Engineering's Frontiers of Development grant, adapting open-source health technology for Arabic-speaking communities. Built on Bahmni — the open-source enterprise-grade EHR system trusted by healthcare organizations worldwide.</p>
+      <h3>بُني بواسطة Next Medtech</h3>
+      <p>نشأ هذا المشروع من منحة حدود التنمية التابعة للأكاديمية الملكية للهندسة، لتكييف تقنيات الصحة مفتوحة المصدر للمجتمعات الناطقة بالعربية. مبني على البهمني — نظام السجلات الصحية الإلكترونية مفتوح المصدر بمستوى المؤسسات والموثوق به من منظمات الرعاية الصحية حول العالم.</p>
 
       <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);">
-        <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem;">Acknowledgements</h3>
-        <p>We gratefully acknowledge the <strong>World Health Organization</strong> and <strong>UK RAEng</strong> for funding this project and making it possible to bring open-source hospital technology to communities that need it most.</p>
-        <p style="margin-top: 1rem;">A special thank you to <strong>Next Medtech</strong>, the social enterprise whose team of 30+ clinicians and software developers in Syria led the localization, development, and deployment of Bahmni RTL — from building the RTL/Arabic version to clinical workflow integration and supporting multiple large academic hospitals through system adoption.</p>
-        <p style="margin-top: 1rem;">Thank you to our development partner <strong>IPLit</strong> for their important role in building Bahmni RTL and supporting its deployment.</p>
+        <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem;">شكر وتقدير</h3>
+        <p>نتقدم بالشكر الجزيل لـ <strong>منظمة الصحة العالمية</strong> و <strong>الأكاديمية الملكية للهندسة البريطانية</strong> لتمويل هذا المشروع وإتاحة الفرصة لجلب تقنيات المستشفيات مفتوحة المصدر إلى المجتمعات الأكثر حاجة إليها.</p>
+        <p style="margin-top: 1rem;">شكر خاص لـ <strong>Next Medtech</strong>، المؤسسة الاجتماعية التي قاد فريقها المكون من أكثر من ٣٠ طبيباً ومطور برمجيات في سوريا عملية التعريب والتطوير والنشر لنظام البهمني باللغة العربية — من بناء النسخة العربية RTL إلى تكامل سير العمل السريري ودعم عدة مستشفيات جامعية كبيرة في تبني النظام.</p>
+        <p style="margin-top: 1rem;">شكراً لشريكنا في التطوير <strong>IPLit</strong> لدورهم المهم في بناء نظام البهمني باللغة العربية ودعم نشره.</p>
       </div>
     </div>
   </section>
@@ -827,20 +827,20 @@
   <!-- Contact / Implementation Interest -->
   <section style="padding: 6rem 2rem;">
     <div style="max-width: 800px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; text-align: center;">
-      <div class="section-label">Interested in Implementation?</div>
-      <h2 class="section-title" style="margin-top: 0.5rem;">Bring Bahmni RTL to your facility</h2>
-      <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8;">Whether you're a hospital, NGO, or health ministry — reach out to us or our implementation partner to discuss deployment in your region.</p>
+      <div class="section-label">مهتم بالتنفيذ؟</div>
+      <h2 class="section-title" style="margin-top: 0.5rem;">انقل نظام البهمني باللغة العربية إلى منشأتك</h2>
+      <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8;">سواء كنت مستشفى أو منظمة غير حكومية أو وزارة صحة — تواصل معنا أو مع شريكنا في التنفيذ لمناقشة النشر في منطقتك.</p>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 600px; margin: 0 auto;">
         <div style="background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem;">
           <div style="font-size: 1.5rem; margin-bottom: 0.75rem;">🏥</div>
-          <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Frontiers of Development</h3>
-          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">General inquiries, partnerships, and project collaboration</p>
+          <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">حدود التنمية</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">استفسارات عامة، شراكات، وتعاون في المشاريع</p>
           <a href="mailto:placeholder@example.com" style="color: var(--accent); font-weight: 600; font-size: 0.9rem; text-decoration: none;">placeholder@example.com</a>
         </div>
         <div style="background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem;">
           <div style="font-size: 1.5rem; margin-bottom: 0.75rem;">🤝</div>
-          <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">IPLIT — Implementation Partner</h3>
-          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">On-the-ground deployment, training, and support</p>
+          <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">IPLIT — شريك التنفيذ</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">النشر الميداني، التدريب، والدعم</p>
           <a href="mailto:placeholder@example.com" style="color: var(--accent); font-weight: 600; font-size: 0.9rem; text-decoration: none;">placeholder@example.com</a>
         </div>
       </div>
@@ -850,7 +850,7 @@
   <!-- Footer -->
   <footer>
     <p>
-      Bahmni RTL is open source under <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-docker-RTL/blob/master/LICENSE">AGPL-3.0</a> · 
+      نظام البهمني باللغة العربية مفتوح المصدر تحت ترخيص <a href="https://github.com/RAEng-FoD-Bahmni-project/bahmni-docker-RTL/blob/master/LICENSE">AGPL-3.0</a> · 
       <a href="https://github.com/RAEng-FoD-Bahmni-project">GitHub</a> · 
       <a href="https://www.bahmni.org/">Bahmni.org</a> · 
       <a href="https://www.raeng.org.uk/programmes-and-prizes/programmes/international-programmes/frontiers">RAEng FoD</a>
